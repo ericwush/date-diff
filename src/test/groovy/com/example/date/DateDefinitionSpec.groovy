@@ -7,7 +7,7 @@ class DateDefinitionSpec extends Specification {
   DateDefinition dateDefinition
 
   def setup() {
-    dateDefinition = new DateDefinition()
+    dateDefinition = DateDefinition.getInstance()
   }
 
   def cleanup() {
@@ -39,6 +39,15 @@ class DateDefinitionSpec extends Specification {
     month << [1, 2, 2, 4]
     day << [2, 20, 20, 4]
     lastDay << [31, 28, 29, 30]
+  }
+
+  def "test days in year"() {
+    expect:
+    days == dateDefinition.daysInYear().apply(year)
+
+    where:
+    year << [2001, 2000]
+    days << [365, 366]
   }
 
 }

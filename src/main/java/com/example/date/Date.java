@@ -25,7 +25,7 @@ public class Date {
   }
 
   public static Builder builder() {
-    return new Date.Builder(new DateDefinition());
+    return new Date.Builder(DateDefinition.getInstance());
   }
 
   public static class Builder {

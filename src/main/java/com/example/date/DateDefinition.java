@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 
 public class DateDefinition {
 
@@ -15,6 +16,18 @@ public class DateDefinition {
   private final static int MIN_MONTH = 1;
   private final static int MAX_MONTH = 12;
   private final static int MIN_DAY = 1;
+
+  private static DateDefinition instance;
+
+  private DateDefinition() {
+  }
+
+  public static synchronized DateDefinition getInstance() {
+    if(instance == null){
+      instance = new DateDefinition();
+    }
+    return instance;
+  }
 
   public Function<Integer, Boolean> isLeap() {
     return year -> year % 4 == 0 && !(year % 100 == 0 && year % 400 != 0);
@@ -58,13 +71,21 @@ public class DateDefinition {
       } else if (MONTHS_30_DAY.contains(date.getMonth())) {
         return 30;
       } else {
-        if (isLeap().apply(date.getYear())) {
-          return 29;
-        } else {
-          return 28;
-        }
+        return isLeap().apply(date.getYear()) ? 29 : 28;
       }
     };
+  }
+
+  public IntFunction<Integer> daysInYear() {
+    return year -> isLeap().apply(year) ? 366 : 365;
+  }
+
+  public int getMinMonth() {
+    return MIN_MONTH;
+  }
+
+  public int getMinDay() {
+    return MIN_DAY;
   }
 
 }
