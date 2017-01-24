@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * I respond to the command line input.
+ */
 public class CommandLineExecutor implements Observer {
 
   private final InputParser inputParser;

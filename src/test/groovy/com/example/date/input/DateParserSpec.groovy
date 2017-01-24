@@ -33,7 +33,7 @@ class DateParserSpec extends Specification {
     then:
     result.isLeft()
     result.left.class == IllegalArgumentException
-    result.left.message == "Cannot convert to number"
+    result.left.message == "Cannot convert to date"
 
     where:
     dateString << ["1 2 a", "c 2 2010"]
@@ -55,18 +55,13 @@ class DateParserSpec extends Specification {
 
   def "test parse date from string for a valid date"() {
     when:
-    def result = parser.parse("$day $month $year")
+    def result = parser.parse("09 03 2000")
 
     then:
     result.isRight()
-    result.get().year == year
-    result.get().month == month
-    result.get().day == day
-
-    where:
-    year = 2000
-    month = 3
-    day = 15
+    result.get().year == 2000
+    result.get().month == 3
+    result.get().day == 9
   }
 
 }

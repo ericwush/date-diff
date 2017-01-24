@@ -38,7 +38,6 @@ public class DateCalculator {
     return (startDate, endDate) ->
       dayOfYear().apply(endDate) - dayOfYear().apply(startDate)
           + daysBetweenYears().apply(startDate.getYear(), endDate.getYear());
-
   }
 
 }

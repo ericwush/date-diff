@@ -8,6 +8,7 @@ import com.example.date.output.Output;
 
 public class DateDiff {
 
+  // Main entrance of the program
   public static void main(final String[] args) {
     DateParser dateParser = new DateParser();
     InputParser inputParser = new InputParser(dateParser);

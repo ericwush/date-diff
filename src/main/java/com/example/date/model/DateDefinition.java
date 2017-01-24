@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 
+/**
+ * I know about how to define a valid date.
+ */
 public class DateDefinition {
 
   // Below can be externalized to property configs

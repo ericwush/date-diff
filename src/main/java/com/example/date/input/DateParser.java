@@ -16,7 +16,7 @@ public class DateParser {
         .map(Integer::valueOf)
         .collect(toList()));
     if (tryDateParts.isFailure()) {
-      return Either.left(new IllegalArgumentException("Cannot convert to number"));
+      return Either.left(new IllegalArgumentException("Cannot convert to date"));
     } else if (tryDateParts.get().size() != 3) {
       return Either.left(new IllegalArgumentException("More or less than 3 arguments to form a date"));
     }
