@@ -1,5 +1,6 @@
-package com.example.date
+package com.example.date.model
 
+import com.example.date.model.Date
 import spock.lang.Specification
 
 class DateSpec extends Specification {

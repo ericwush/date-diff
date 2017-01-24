@@ -1,7 +1,9 @@
-package com.example.date;
+package com.example.date.model;
 
 import javaslang.control.Either;
 import javaslang.control.Try;
+
+import java.util.Objects;
 
 public class Date {
 
@@ -61,6 +63,25 @@ public class Date {
       ).toEither();
     }
 
+  }
+
+  @Override
+  public boolean equals(final Object o) {
+    if (o == this) {
+      return true;
+    }
+
+    if (o instanceof Date) {
+      Date other = (Date) o;
+      return Objects.equals(year, other.year) && Objects.equals(month, other.month) && Objects.equals(day, other.day);
+    }
+
+    return false;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(year, month, day);
   }
 
 }

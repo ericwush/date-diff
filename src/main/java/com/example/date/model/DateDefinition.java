@@ -1,4 +1,4 @@
-package com.example.date;
+package com.example.date.model;
 
 import java.util.Arrays;
 import java.util.Collections;
